@@ -50,10 +50,6 @@ function ProductFields(props) {
           Enabling it will make Checkout page inaccessible <br /> and hide
           buttons (Checkout and Pay buttons on Cart page, Checkout button on
           Storefront theme's Minicart). <br />
-          Direct access of Checkout page will redirect to Cart page. Enabling it
-          will make Checkout page inaccessible <br /> and hide buttons (Checkout
-          and Pay buttons on Cart page, Checkout button on Storefront theme's
-          Minicart). <br />
           Direct access of Checkout page will redirect to Cart page.
         </Tooltip>
         <Field name="revokeCheckout" type="checkbox" />
