@@ -6,7 +6,10 @@ const initialValues = {
   priceText: "",
   add2cartText: "",
   revokeCheckout: false,
-  allowInquiry: false
+  allowInquiry: false,
+  formMarkup: "",
+  clearCart: false,
+  disableEmail: false
 };
 
 export default function App() {

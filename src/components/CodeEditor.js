@@ -13,25 +13,34 @@ export default function CodeEditor(props) {
       console.log(`setting focus. edit mode = ${editMode.active}`);
     }
   }, [inputElem, editMode.active]);
+
   return (
     <div>
       <div>
         <textarea
           value={code}
           readOnly={!editMode.active}
-          onChange={(e) => setCode(e.target.value)}
+          onChange={(e) => {
+            setCode(e.target.value);
+          }}
           ref={inputElem}
+          {...props.fieldProps}
         />
       </div>
       <div>
         {editMode.active ? (
           <>
             <button
-              onClick={() => setEditMode({ active: false, codeBackup: "" })}
+              type="button"
+              onClick={() => {
+                setEditMode({ active: false, codeBackup: "" });
+                props.onChange && props.onChange(code);
+              }}
             >
               Ok
             </button>
             <button
+              type="button"
               onClick={() => {
                 setCode(editMode.codeBackup);
                 setEditMode({ active: false, codeBackup: "" });
@@ -42,6 +51,7 @@ export default function CodeEditor(props) {
           </>
         ) : (
           <button
+            type="button"
             onClick={() => setEditMode({ active: true, codeBackup: code })}
           >
             Edit
