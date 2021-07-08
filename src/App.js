@@ -9,7 +9,7 @@ const initialValues = {
   allowInquiry: false,
   formMarkup: "",
   clearCart: false,
-  disableEmail: false
+  disableAck: false
 };
 
 export default function App() {
