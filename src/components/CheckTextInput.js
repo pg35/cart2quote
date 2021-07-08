@@ -1,4 +1,5 @@
-import { Field, useFormikContext } from "formik";
+import { useFormikContext } from "formik";
+import InputField from "./InputField";
 
 export default function CheckTextInput(props) {
   const { values } = useFormikContext();
@@ -7,12 +8,12 @@ export default function CheckTextInput(props) {
     <>
       <div>
         <label htmlFor={checkName}>{checkLabel}</label>
-        <Field name={checkName} type="checkbox" />
+        <InputField name={checkName} type="checkbox" />
       </div>
 
       <div>
         <label htmlFor={textName}>{textLabel}</label>
-        <Field name={textName} disabled={!values[checkName]} />
+        <InputField name={textName} disabled={!values[checkName]} />
       </div>
     </>
   );

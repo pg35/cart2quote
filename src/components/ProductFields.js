@@ -1,4 +1,4 @@
-import { Field } from "formik";
+import InputField from "./InputField";
 import CheckTextInput from "./CheckTextInput";
 import Tooltip from "./Tooltip";
 
@@ -13,7 +13,7 @@ export default function ProductFields(props) {
       />
       <div>
         <label htmlFor="add2cartText">Add To Cart Button Text</label>
-        <Field name="add2cartText" />
+        <InputField name="add2cartText" />
         <Tooltip id="add2cartText">This is add to cqrt button text.</Tooltip>
       </div>
       <div>
@@ -24,12 +24,12 @@ export default function ProductFields(props) {
           Storefront theme's Minicart). <br />
           Direct access of Checkout page will redirect to Cart page.
         </Tooltip>
-        <Field name="revokeCheckout" type="checkbox" />
+        <InputField name="revokeCheckout" type="checkbox" />
       </div>
       <div>
         <label htmlFor="allowInquiry">Allow Quote Inquiry</label>
         <Tooltip id="allowInquiryTT">aaaaaaaaaaaa nnnnnnnnnnnnnnnn</Tooltip>
-        <Field name="allowInquiry" type="checkbox" />
+        <InputField name="allowInquiry" type="checkbox" />
       </div>
     </>
   );
