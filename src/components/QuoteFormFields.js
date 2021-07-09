@@ -1,6 +1,5 @@
 import FieldLayout from "./FieldLayout";
 import InputField from "./InputField";
-import CodeInputField from "./CodeInputField";
 import Tooltip from "./Tooltip";
 
 export default function QuoteFormFields(props) {

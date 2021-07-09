@@ -1,10 +1,13 @@
+import { useContext } from "react";
 import { useFormikContext } from "formik";
 import FieldLayout from "./FieldLayout";
 import InputField from "./InputField";
 import Tooltip from "./Tooltip";
+import { GlobalContext } from "./GlobalSettings";
 
 export default function CheckTextFields(props) {
   const { values } = useFormikContext();
+  const { enable } = useContext(GlobalContext);
   const {
     id,
     checkLabel,
@@ -28,7 +31,10 @@ export default function CheckTextFields(props) {
       <FieldLayout
         label={<label htmlFor={fullTextName}>{textLabel}</label>}
         input={
-          <InputField name={fullTextName} disabled={!values[id][checkName]} />
+          <InputField
+            name={fullTextName}
+            disabled={!(enable && values[id][checkName])}
+          />
         }
         tooltip={<Tooltip id={fullTextName}>{textTooltip}</Tooltip>}
       />

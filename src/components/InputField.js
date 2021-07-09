@@ -1,5 +1,9 @@
+import { useContext } from "react";
 import { Field } from "formik";
+import { GlobalContext } from "./GlobalSettings";
 
 export default function InputField(props) {
-  return <Field id={props.name} {...props} />;
+  const { enable } = useContext(GlobalContext);
+
+  return <Field id={props.name} disabled={!enable} {...props} />;
 }
