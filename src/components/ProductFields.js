@@ -1,13 +1,13 @@
 import FieldLayout from "./FieldLayout";
 import InputField from "./InputField";
-import CheckTextInput from "./CheckTextInput";
+import CheckTextFields from "./CheckTextFields";
 import Tooltip from "./Tooltip";
 
 export default function ProductFields(props) {
   const { id } = props;
   return (
     <>
-      <CheckTextInput
+      <CheckTextFields
         id={id}
         checkLabel="Hide Price"
         checkName="hidePrice"

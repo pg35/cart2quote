@@ -3,7 +3,7 @@ import FieldLayout from "./FieldLayout";
 import InputField from "./InputField";
 import Tooltip from "./Tooltip";
 
-export default function CheckTextInput(props) {
+export default function CheckTextFields(props) {
   const { values } = useFormikContext();
   const {
     id,

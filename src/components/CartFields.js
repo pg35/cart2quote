@@ -4,7 +4,6 @@ import Tooltip from "./Tooltip";
 
 export default function CartFields(props) {
   const { id } = props;
-  console.log(id, `${id}.hideCoupan`);
   return (
     <>
       <FieldLayout
