@@ -6,6 +6,7 @@ import Tooltip from "./Tooltip";
 export default function CheckTextInput(props) {
   const { values } = useFormikContext();
   const {
+    id,
     checkLabel,
     checkName,
     checkTooltip,
@@ -13,18 +14,23 @@ export default function CheckTextInput(props) {
     textName,
     textTooltip
   } = props;
+  const fullCheckName = `${id}.${checkName}`;
+  const fullTextName = `${id}.${textName}`;
+
   return (
     <>
       <FieldLayout
-        label={<label htmlFor={checkName}>{checkLabel}</label>}
-        input={<InputField name={checkName} type="checkbox" />}
-        tooltip={<Tooltip id={checkName}>{checkTooltip} </Tooltip>}
+        label={<label htmlFor={fullCheckName}>{checkLabel}</label>}
+        input={<InputField name={fullCheckName} type="checkbox" />}
+        tooltip={<Tooltip id={fullCheckName}>{checkTooltip} </Tooltip>}
       />
 
       <FieldLayout
-        label={<label htmlFor={textName}>{textLabel}</label>}
-        input={<InputField name={textName} disabled={!values[checkName]} />}
-        tooltip={<Tooltip id={textName}>{textTooltip}</Tooltip>}
+        label={<label htmlFor={fullTextName}>{textLabel}</label>}
+        input={
+          <InputField name={fullTextName} disabled={!values[id][checkName]} />
+        }
+        tooltip={<Tooltip id={fullTextName}>{textTooltip}</Tooltip>}
       />
     </>
   );

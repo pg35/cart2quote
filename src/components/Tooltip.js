@@ -3,12 +3,8 @@ import ReactTooltip from "react-tooltip";
 export default function Tooltip(props) {
   return (
     <>
-      <span
-        className="dashicons dashicons-editor-help"
-        data-tip
-        data-for={props.id}
-      >
-        ??
+      <span data-tip data-for={props.id}>
+        <span className="dashicons dashicons-editor-help"></span>
       </span>
       <ReactTooltip
         id={props.id}
