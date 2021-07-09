@@ -15,15 +15,15 @@ export default function GlobalSettings(props) {
   return (
     <Formik
       initialValues={props.initialValues}
-      onSubmit={(values, { setSubmitting }) =>
+      onSubmit={(values, { setSubmitting }) => {
         setTimeout(() => {
-          alert(JSON.stringify(values, null, 2));
+          //alert(JSON.stringify(values, null, 2));
           setSubmitting(false);
-          console.log(values);
-        })
-      }
+        }, 5000);
+        console.log("aaa");
+      }}
     >
-      {({ handleSubmit, values }) => (
+      {({ handleSubmit, values, isSubmitting }) => (
         <form className="mwqc_form" onSubmit={handleSubmit}>
           <Tabs>
             <TabList>
@@ -55,7 +55,11 @@ export default function GlobalSettings(props) {
               </GlobalContext.Provider>
             </TabPanel>
           </Tabs>
-          <button type="submit" className="mwqc_submit button-primary">
+          <button
+            type="submit"
+            className="mwqc_submit button-primary"
+            disabled={isSubmitting}
+          >
             Submit
           </button>
         </form>
