@@ -5,7 +5,7 @@ export default function Button(props) {
   const msgClassName = result instanceof Error ? "mwqc_error" : "mwqc_success";
   return (
     <>
-      <button disabled={isProcessing} className="primary-button" {...others}>
+      <button disabled={isProcessing} {...others}>
         {props.children}
         {isProcessing && <img src={spinnerUrl} alt="spinner" />}
       </button>{" "}

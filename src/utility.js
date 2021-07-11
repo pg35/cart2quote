@@ -1,7 +1,4 @@
-const ajaxUrl =
-  "undefined" === typeof ajaxurl
-    ? "https://b4rsu.sse.codesandbox.io/"
-    : ajaxurl;
+const ajaxUrl = "undefined" === typeof ajaxurl ? "" : ajaxurl;
 const spinnerUrl =
   "undefined" === typeof mwqcSpinnerUrl
     ? "http://immi.epizy.com/wp-includes/images/spinner.gif"
@@ -11,7 +8,8 @@ function checkStatus(response) {
   if (response.status >= 200 && response.status < 300) {
     return response;
   } else {
-    var error = new Error(response.statusText);
+    const msg = response.statusText ? response.statusText : "Network Error";
+    var error = new Error(msg);
     error.response = response;
     throw error;
   }

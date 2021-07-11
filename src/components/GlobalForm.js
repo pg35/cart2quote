@@ -33,7 +33,12 @@ export default function GlobalForm(props) {
             guestOn={values.g.enable}
             a={1}
           />
-          <Button type="submit" isProcessing={isSubmitting} result={ajaxResult}>
+          <Button
+            type="submit"
+            className="primary-button"
+            isProcessing={isSubmitting}
+            result={ajaxResult}
+          >
             Update
           </Button>
         </form>
