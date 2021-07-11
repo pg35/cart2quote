@@ -11,6 +11,9 @@ label {
   border-bottom: 1px solid;
   padding-bottom: 10px;
 }
+.mwqc_form [type="submit"] {
+  margin: 20px 0 0 10px;
+}
 @media (min-width: 500px) {
   .mwqc_field > div {
     display: inline-block;
@@ -19,7 +22,9 @@ label {
     width: 250px;
   }
 }
-.mwqc_submit {
-  display: inline-block;
-  margin-top: 20px;
+.mwqc_success {
+  color: green;
+}
+.mwqc_error {
+  color: red;
 }

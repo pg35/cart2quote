@@ -31,7 +31,6 @@ const initialValues = {
     hideTax: false
   }
 };
-
 export default function App() {
   return (
     <div className="App">
