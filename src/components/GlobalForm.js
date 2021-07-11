@@ -6,7 +6,7 @@ import { ajaxUrl, doAjax } from "../utility";
 
 export const GlobalContext = createContext(true);
 
-export default function GlobalSettings(props) {
+export default function GlobalForm(props) {
   const [ajaxResult, setAjaxResult] = useState(null);
   return (
     <Formik

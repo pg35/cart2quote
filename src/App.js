@@ -1,5 +1,5 @@
 import "./styles.css";
-import GlobalSettings from "./components/GlobalSettings";
+import GlobalForm from "./components/GlobalForm";
 
 const initialValues = {
   r: {
@@ -34,7 +34,7 @@ const initialValues = {
 export default function App() {
   return (
     <div className="App">
-      <GlobalSettings initialValues={initialValues} />
+      <GlobalForm initialValues={initialValues} />
     </div>
   );
 }
