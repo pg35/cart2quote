@@ -1,13 +1,13 @@
-import { useState, createContext } from "react";
+import { useState } from "react";
 import { Formik } from "formik";
-import GlobalFormFields from "./GlobalFormFields";
+import ProductFields from "./ProductFields";
+import CheckboxField from "./CheckboxField";
 import Button from "./Button";
-import { ajaxUrl, doAjax } from "../utility";
+import { ajaxUrl, doAjaxDummy as doAjax } from "../utility";
 
-export const GlobalContext = createContext(true);
-
-export default function GlobalForm(props) {
+export default function ProductForm(props) {
   const [ajaxResult, setAjaxResult] = useState(null);
+  const Context = props.context;
   return (
     <Formik
       initialValues={props.initialValues}
@@ -25,22 +25,26 @@ export default function GlobalForm(props) {
           });
       }}
     >
-      {({ handleSubmit, values, isSubmitting }) => (
-        <form className="mwqc_form" onSubmit={handleSubmit}>
-          <GlobalFormFields
-            context={props.context}
-            customerOn={values.r.enable}
-            guestOn={values.g.enable}
+      {({ handleSubmit, values, isSubmitting, submitForm }) => (
+        <>
+          <CheckboxField
+            name="p.enable"
+            label="Configure this product"
+            tooltip="Override global configuration"
           />
+          <Context.Provider value={{ enable: values.p.enable }}>
+            <ProductFields id="p" />
+          </Context.Provider>
           <Button
             type="submit"
             className="primary-button"
             isProcessing={isSubmitting}
             result={ajaxResult}
+            onClick={submitForm}
           >
             Update
           </Button>
-        </form>
+        </>
       )}
     </Formik>
   );

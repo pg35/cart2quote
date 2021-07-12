@@ -1,5 +1,7 @@
-import "./styles.css";
+import { createContext } from "react";
 import GlobalForm from "./components/GlobalForm";
+import ProductForm from "./components/ProductForm";
+import "./styles.css";
 
 const initialValues = {
   r: {
@@ -31,10 +33,24 @@ const initialValues = {
     hideTax: false
   }
 };
+const productInitialValues = {
+  p: {
+    enable: false,
+    hidePrice: false,
+    priceText: "",
+    add2cartText: "",
+    revokeCheckout: false,
+    allowInquiry: false
+  }
+};
+export const FormContext = createContext(true);
+
 export default function App() {
   return (
     <div className="App">
-      <GlobalForm initialValues={initialValues} />
+      <ProductForm initialValues={productInitialValues} context={FormContext} />
+      <hr />
+      <GlobalForm initialValues={initialValues} context={FormContext} />
     </div>
   );
 }

@@ -3,11 +3,11 @@ import { useFormikContext } from "formik";
 import FieldLayout from "./FieldLayout";
 import InputField from "./InputField";
 import Tooltip from "./Tooltip";
-import { GlobalContext } from "./GlobalForm";
+import { FormContext } from "../App";
 
 export default function CheckTextFields(props) {
   const { values } = useFormikContext();
-  const { enable } = useContext(GlobalContext);
+  const { enable } = useContext(FormContext);
   const {
     id,
     checkLabel,

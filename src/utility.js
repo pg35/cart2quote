@@ -18,21 +18,24 @@ function checkStatus(response) {
 function parseJSON(response) {
   return response.json();
 }
-export let fetcherGlobals = {
+export let ajaxGlobals = {
   method: "POST",
-  body: JSON.stringify({}),
+  body: "",
   headers: {
-    "Content-Type": "application/json"
+    "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
   },
   credentials: "same-origin"
 };
 function doAjaxDummy(url, options) {
   return new Promise(function (r, re) {
-    setTimeout(() => r({ message: "aaa" }), 200);
+    setTimeout(() => {
+      console.log(options);
+      r({ message: "aaa" });
+    }, 200);
   });
 }
 function doAjax(url, options) {
-  return fetch(url, { ...fetcherGlobals, ...options })
+  return fetch(url, { ...ajaxGlobals, ...options })
     .then(checkStatus)
     .then(parseJSON);
 }
