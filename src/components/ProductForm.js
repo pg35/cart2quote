@@ -13,7 +13,12 @@ export default function ProductForm(props) {
       initialValues={props.initialValues}
       onSubmit={(values, { setSubmitting }) => {
         setAjaxResult(null);
-        doAjax(ajaxUrl, { body: new URLSearchParams(values) })
+        doAjax(ajaxUrl, {
+          body: new URLSearchParams({
+            action: "mwqt_save_settings",
+            ...values
+          })
+        })
           .then(function (response) {
             setAjaxResult(response);
           })
