@@ -1,3 +1,4 @@
+import React from "react";
 import { Field } from "formik";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import ProductFields from "./ProductFields";

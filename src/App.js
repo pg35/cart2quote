@@ -1,3 +1,4 @@
+import React from "react";
 import { createContext } from "react";
 import GlobalForm from "./components/GlobalForm";
 import ProductForm from "./components/ProductForm";
@@ -47,7 +48,7 @@ const productInitialValues = {
 export const FormContext = createContext(true);
 
 export default function App() {
-  return <InquiryFormFields />;
+  //return <InquiryFormFields />;
   return (
     <div className="App">
       <ProductForm initialValues={productInitialValues} context={FormContext} />
